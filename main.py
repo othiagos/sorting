@@ -28,6 +28,7 @@ if __name__ == '__main__':
     path = './bin/sorting'
     seed = randint(1, 1000)
     command = {
+        "R": "radixsort",
         "H": "heapsort",
         "M": "mergesort",
         "Q": "quicksort",
@@ -36,19 +37,18 @@ if __name__ == '__main__':
         # "B": "bubblesort", # carroça extreme
     }
 
-    n = 1000000 # max vector
+    n = 10_000_000  # max vector
     i = int(n / 15)
-    
+
     for i in range(i, n, i):
         for k in command.keys():
             run_binary(path, k, i, seed)
 
-    
     for v in command.values():
         data = read_file(f'./{v}.csv')
         generate_plot(data, v)
 
     plt.xlabel('Tamanho do vetor')
     plt.ylabel('Tempo (s)')
-    plt.ticklabel_format(style='plain')
+    # plt.ticklabel_format(style='plain')
     plt.savefig('graphic.png', dpi=300)

@@ -10,7 +10,6 @@ $ make
 ### **Arguments**
 ```
 ./bin/sorting COMMAND VECTOR_SIZE SEED
-
 ```
 ### **Commands**
 >H = heapsort \
@@ -18,7 +17,8 @@ M = mergesort \
 Q = quicksort \
 I = insertionsort \
 S = selectionsort \
-B = bubblesort
+B = bubblesort \
+R = radixsort 
 
 ### **Run and Generate Graph**
 

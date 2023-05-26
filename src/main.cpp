@@ -9,6 +9,7 @@
 #include "InsertionSort.hpp"
 #include "MergeSort.hpp"
 #include "QuickSort.hpp"
+#include "RadixSort.hpp"
 #include "SelectionSort.hpp"
 
 void write_file(std::string name, const int &tamanho, const float &tempo) {
@@ -88,6 +89,16 @@ int main(int argc, char const *argv[]) {
 
         delete s;
         write_file("./quicksort.csv", size, (float)t / CLOCKS_PER_SEC);
+        break;
+    case 'R':
+        s = new RadixSort<int>();
+
+        t = clock();
+        s->sort(vec, size);
+        t = clock() - t;
+
+        delete s;
+        write_file("./radixsort.csv", size, (float)t / CLOCKS_PER_SEC);
         break;
     case 'S':
         s = new SelectionSort<int>();
